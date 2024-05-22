@@ -1,0 +1,83 @@
+.a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 8px;
+}
+.a1 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background: #fe2722;
+}
+.a3 input {
+  width: 700px;
+  padding: 20px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+.a3 {
+  display: flex;
+  align-items: center;
+}
+.a3 button {
+  padding: 15px 30px;
+  border-radius: 16px;
+  border-style: none;
+  background: #ccff66;
+  margin-left: -105px;
+}
+.a2 a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fd1d19;
+  color: #fff;
+}
+.a2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fd1d19;
+  color: #fff;
+}
+.a2 svg {
+  color: #fff;
+  font-size: 25px;
+}
+.a4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 110px;
+}
+.a5 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.a5 p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  cursor: pointer;
+}

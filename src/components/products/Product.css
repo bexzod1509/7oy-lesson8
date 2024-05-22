@@ -1,0 +1,66 @@
+.c {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  font-size: 20px;
+  color: gray;
+  padding-bottom: 5px;
+}
+.c p:hover {
+  color: #000;
+  border-bottom: 2px solid #000;
+  cursor: pointer;
+}
+.c2 {
+  max-width: 300px;
+  padding: 10px;
+}
+.c2 img {
+  width: 290px;
+  height: 290px;
+}
+.c3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  margin-top: -290px;
+  margin-left: 10px;
+}
+.c3 button {
+  padding: 3px;
+  font-size: 20px;
+  border-radius: 8px;
+  border-style: none;
+  background: #fff;
+}
+.c2 p {
+  font-size: 20px;
+  max-width: 300px;
+  color: gray;
+  margin-top: 10px;
+}
+.c4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.c4 svg {
+  color: rgb(255, 174, 0);
+}
+.c4 h4 {
+  font-size: 15px;
+  font-weight: 400;
+}
+.c1 {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
