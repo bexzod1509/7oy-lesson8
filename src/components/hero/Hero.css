@@ -1,0 +1,28 @@
+.hero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 70px;
+}
+.herobtn button {
+  padding: 15px 30px;
+  border-radius: 8px;
+  background: #fd1d19;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 20px 20px 20px 0px;
+}
+.herobtn button:disabled {
+  opacity: 0.5;
+}
+.heroselect select {
+  background: #ccff66;
+  border: none;
+  color: gray;
+  font-size: 20px;
+  outline-color: none;
+  width: 220px;
+  padding: 10px;
+  margin-top: 30px;
+}

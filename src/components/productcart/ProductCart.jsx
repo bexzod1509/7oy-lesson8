@@ -2,14 +2,15 @@ import React from "react";
 import "./ProductCart.css";
 import { FaStore } from "react-icons/fa";
 import { FaList } from "react-icons/fa";
-import logo from "../../assets/logo.webp";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import useStore from "../../context/store";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "../../context/cartSlice";
+import { incrementCart } from "../../context/cartSlice";
+import { decrementCart } from "../../context/cartSlice";
+import { deleteAllCart } from "../../context/cartSlice";
 function ProductCart() {
-  let card = useStore((state) => state.arr);
-  let reset = useStore((state) => state.reset);
-  let inc = useStore((state) => state.incrementCartQuantity);
-  let remove = useStore((state) => state.removeItemFromCart);
+  let dispatch = useDispatch();
+  let card = useSelector((state) => state.cart.value);
   let total = card?.reduce((sum, item) => sum + item.price * item.quantity, 0);
   let dataImg = card?.map((el) => (
     <div key={el.id} className="e8">
@@ -21,16 +22,25 @@ function ProductCart() {
       <img src={item.images[0]} alt="" />
       <p>{item.description}</p>
       <div className="e5">
-        <button onClick={() => remove(item)}>
-          <RiDeleteBin6Line />
+        <button
+          disabled={item.quantity <= 1}
+          onClick={() => dispatch(decrementCart(item))}
+        >
+          -
         </button>
         <h4>{item.quantity}</h4>
-        <button onClick={() => inc(item)}>+</button>
+        <button onClick={() => dispatch(incrementCart(item))}>+</button>
       </div>
       <div className="e6">
         <h3>{item.price * item.quantity} USD</h3>
         <h4>Доставка 41 USD </h4>
       </div>
+      <button
+        className="cardbtn"
+        onClick={() => dispatch(removeFromCart(item))}
+      >
+        <RiDeleteBin6Line />
+      </button>
     </div>
   ));
   return (
@@ -48,7 +58,10 @@ function ProductCart() {
                 <FaList style={{ color: "#000" }} />
                 <p style={{ color: "#000" }}>Списком</p>
               </button>
-              <button onClick={() => reset()} style={{ border: "none" }}>
+              <button
+                onClick={() => dispatch(deleteAllCart())}
+                style={{ border: "none" }}
+              >
                 <RiDeleteBin6Line style={{ color: "#000", fontSize: "25px" }} />
               </button>
             </div>

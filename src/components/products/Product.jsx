@@ -5,24 +5,25 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { BsCartCheckFill } from "react-icons/bs";
-import useStore from "../../context/store";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleHeart } from "../../context/heartSlice";
+import { addToCart } from "../../context/cartSlice";
 function Product({ data }) {
-  let cart = useStore((state) => state.addToCart);
-  let card = useStore((state) => state.arr);
-  let wish = useStore((state) => state.toggleLike);
-  let wishList = useStore((state) => state.value);
+  let dispatch = useDispatch();
+  let card = useSelector((state) => state.cart.value);
+  let wishList = useSelector((state) => state.heart.value);
   let Products = data?.map((el) => (
     <div key={el.id} className="c2">
       <img src={el.images[0]} alt="" />
       <div className="c3">
-        <button onClick={() => wish(el)}>
+        <button onClick={() => dispatch(toggleHeart(el))}>
           {wishList?.some((item) => item.id === el.id) ? (
             <FaHeart style={{ color: "red" }} />
           ) : (
             <FaRegHeart />
           )}
         </button>
-        <button onClick={() => cart(el)}>
+        <button onClick={() => dispatch(addToCart(el))}>
           {card?.some((item) => item.id === el.id) ? (
             <BsCartCheckFill />
           ) : (

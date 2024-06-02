@@ -1,9 +1,9 @@
 import React from "react";
 import ProductCart from "../../components/productcart/ProductCart";
 import Empty from "../../components/empty/Empty";
-import useStore from "../../context/store";
+import { useSelector } from "react-redux";
 function Cart() {
-  let cart = useStore((state) => state.arr);
+  let cart = useSelector((state) => state.cart.value);
   return <div>{cart?.length ? <ProductCart /> : <Empty />}</div>;
 }
 

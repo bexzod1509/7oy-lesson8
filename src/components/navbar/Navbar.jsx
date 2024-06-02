@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { GrCatalog } from "react-icons/gr";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { FiUser } from "react-icons/fi";
+import { FaChartColumn } from "react-icons/fa6";
 import { FaFire } from "react-icons/fa";
 import logo from "../../assets/logo.webp";
 import { FaLocationDot } from "react-icons/fa6";
@@ -39,8 +39,10 @@ function Navbar() {
                 </NavLink>
               </div>
               <div className="a2">
-                <FiUser />
-                <p>Войти</p>
+                <NavLink to={"/chart"}>
+                  <FaChartColumn />
+                  <p>Статистика</p>
+                </NavLink>
               </div>
             </div>
           </div>

@@ -1,8 +1,14 @@
-import { create } from "zustand";
-import { wishList } from "./wishList";
-import { cart } from "./cart";
-const useStore = create((set) => ({
-  ...wishList(set),
-  ...cart(set),
-}));
-export default useStore;
+import { configureStore } from "@reduxjs/toolkit";
+import heartSlice from "./heartSlice";
+import cartSlice from "./cartSlice";
+import { api } from "./api";
+
+export const store = configureStore({
+  reducer: {
+    heart: heartSlice,
+    cart: cartSlice,
+    [api.reducerPath]: api.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
+});
